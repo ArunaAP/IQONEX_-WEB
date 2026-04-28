@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const pages = [
-  { label: "CASES", href: "/#work" },
+  { label: "OUR WORK", href: "/work" },
   { label: "CONTACTS", href: "/contact" },
   { label: "BLOG", href: "/blog" },
 ];
