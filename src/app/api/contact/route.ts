@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     }
 
     await resend.emails.send({
-      from: "iQONEX Contact <onboarding@resend.dev>", // ← change after domain verified
+      from: "iQONEX Contact <contact@theiqonex.com>",
       to: "theiqonex@gmail.com",
       replyTo: email,
       subject: `New message from ${name} — iQONEX`,
