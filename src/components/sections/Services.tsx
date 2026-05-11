@@ -38,7 +38,7 @@ const services = [
 ];
 
 export default function Services() {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState<number | null>(null);
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
