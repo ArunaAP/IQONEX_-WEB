@@ -9,7 +9,7 @@ const projects = [
   {
     tag: "WEB",
     title: "IQONEX POS",
-    image: "/works/pos-system.png",
+    image: "/works/pos-system-img.png",
     featured: false,
   },
   {
