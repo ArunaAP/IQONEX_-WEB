@@ -14,7 +14,7 @@ const projects = [
     title: "IQONEX POS",
     category: "WEB",
     tag: "WEB",
-    image: "/works/pos-system.png",
+    image: "/works/pos-system-img.png",
     year: "2024",
     desc: "A modern point-of-sale system built for retail businesses.",
   },
