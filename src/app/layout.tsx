@@ -24,7 +24,10 @@ const geom = Geom({
 });
 
 export const metadata: Metadata = {
-  title: "theiqonex — Where Creativity Meets Technology",
+  title: {
+    default: "theiqonex — Where Creativity Meets Technology",
+    template: "%s | theiqonex",
+  },
   description:
     "the iqonex is a creative software company specializing in UI/UX, Web Development, Branding, SEO, and ERP.",
 
