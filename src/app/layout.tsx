@@ -24,9 +24,21 @@ const geom = Geom({
 });
 
 export const metadata: Metadata = {
-  title: "iqonex — Where Creativity Meets Technology",
+  title: "theiqonex — Where Creativity Meets Technology",
   description:
-    "iqonex is a creative software company specializing in UI/UX, Web Development, Branding, SEO, and ERP.",
+    "the iqonex is a creative software company specializing in UI/UX, Web Development, Branding, SEO, and ERP.",
+
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    ],
+
+    apple: "/apple-touch-icon.png",
+  },
+
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

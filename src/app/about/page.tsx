@@ -5,17 +5,17 @@ import { motion } from "framer-motion";
 import NextPages from "@/components/sections/Nextpages";
 
 const stats = [
-  { value: "50+", label: "Projects Delivered" },
+  { value: "10+", label: "Projects Delivered" },
   { value: "3+", label: "Years Experience" },
-  { value: "20+", label: "Happy Clients" },
+  { value: "10+", label: "Happy Clients" },
   { value: "5", label: "Core Services" },
 ];
 
 const team = [
-  { name: "Aruna Wijesinghe", role: "Founder" },
-  //   { name: "Jane Smith", role: "Lead Developer" },
-  //   { name: "Mike Lee", role: "Brand Strategist" },
-  //   { name: "Sara Perera", role: "SEO Specialist" },
+  { name: "Aruna Wijesinghe", role: "Founder", image: "/team/aruna1.jpg" },
+  // { name: "Jane Smith", role: "Lead Developer", image: "/team/jane.jpg" },
+  // { name: "Mike Lee", role: "Brand Strategist", image: "/team/mike.jpg" },
+  // { name: "Sara Perera", role: "SEO Specialist", image: "/team/sara.jpg" },
 ];
 
 const values = [
@@ -213,10 +213,21 @@ export default function AboutPage() {
                 className="group"
               >
                 {/* Avatar placeholder */}
-                <div className="mb-4 flex aspect-square items-end rounded-xl bg-white/5 p-4 transition-colors duration-300 group-hover:bg-white/10">
-                  <div>
+                <div className="relative mb-4 aspect-square overflow-hidden rounded-xl bg-white/5 transition-colors duration-300 group-hover:bg-white/10">
+                  {member.image && (
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
+                  {/* Gradient overlay so text is readable */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  {/* Name + role at bottom */}
+                  <div className="absolute right-0 bottom-0 left-0 p-4">
                     <p className="font-dm text-sm font-semibold text-white">{member.name}</p>
-                    <p className="mt-0.5 text-[10px] tracking-widest text-white/30 uppercase">
+                    <p className="mt-0.5 text-[10px] tracking-widest text-white/50 uppercase">
                       {member.role}
                     </p>
                   </div>

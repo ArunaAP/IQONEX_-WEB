@@ -1,26 +1,69 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    const { name, email, phone, projectType, message } = body;
+    const { name, email, phone, projectType, message } = await req.json();
 
-    // ── Option A: Resend (recommended) ──
-    // import { Resend } from "resend";
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({
-    //   from: "contact@yourdomain.com",
-    //   to: "theiqonex@gmail.com",
-    //   subject: `New message from ${name}`,
-    //   html: `<p><b>Name:</b> ${name}</p>
-    //          <p><b>Email:</b> ${email}</p>
-    //          <p><b>Phone:</b> ${phone || "N/A"}</p>
-    //          <p><b>Project Type:</b> ${projectType}</p>
-    //          <p><b>Message:</b> ${message}</p>`,
-    // });
+    // Basic validation
+    if (!name || !email || !message) {
+      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    }
 
-    // ── Option B: Log for now (remove when using Resend) ──
-    console.log("Contact form submission:", { name, email, phone, projectType, message });
+    await resend.emails.send({
+      from: "iQONEX Contact <onboarding@resend.dev>", // ← change after domain verified
+      to: "theiqonex@gmail.com",
+      replyTo: email,
+      subject: `New message from ${name} — iQONEX`,
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #f0ede8;">
+          <div style="background: #111110; padding: 24px; border-radius: 12px; margin-bottom: 24px;">
+            <h1 style="color: white; font-size: 24px; margin: 0;">
+              New Contact from <span style="color: #f97316;">iQONEX</span>
+            </h1>
+          </div>
+
+          <div style="background: white; padding: 24px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05);">
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr style="border-bottom: 1px solid #f0ede8;">
+                <td style="padding: 12px 0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #888; width: 120px;">Name</td>
+                <td style="padding: 12px 0; font-size: 14px; color: #2a2a2a; font-weight: 600;">${name}</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f0ede8;">
+                <td style="padding: 12px 0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #888;">Email</td>
+                <td style="padding: 12px 0; font-size: 14px; color: #f97316;">
+                  <a href="mailto:${email}" style="color: #f97316;">${email}</a>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f0ede8;">
+                <td style="padding: 12px 0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #888;">Phone</td>
+                <td style="padding: 12px 0; font-size: 14px; color: #2a2a2a;">${phone || "Not provided"}</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f0ede8;">
+                <td style="padding: 12px 0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #888;">Project Type</td>
+                <td style="padding: 12px 0; font-size: 14px; color: #2a2a2a;">${projectType}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #888; vertical-align: top;">Message</td>
+                <td style="padding: 12px 0; font-size: 14px; color: #2a2a2a; line-height: 1.6;">${message}</td>
+              </tr>
+            </table>
+          </div>
+
+          <div style="text-align: center; margin-top: 24px;">
+            <a href="mailto:${email}" style="background: #f97316; color: white; padding: 12px 24px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-decoration: none; text-transform: uppercase;">
+              Reply to ${name} →
+            </a>
+          </div>
+
+          <p style="text-align: center; font-size: 11px; color: #aaa; margin-top: 24px;">
+            This email was sent from the iQONEX contact form.
+          </p>
+        </div>
+      `,
+    });
 
     return NextResponse.json({ success: true });
   } catch (error) {
