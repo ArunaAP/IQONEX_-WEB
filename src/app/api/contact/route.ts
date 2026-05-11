@@ -65,6 +65,48 @@ export async function POST(req: Request) {
       `,
     });
 
+    // Send confirmation to CLIENT
+    await resend.emails.send({
+      from: "iQONEX <contact@theiqonex.com>",
+      to: email,
+      subject: "We received your message — iQONEX",
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #f0ede8;">
+          
+          <div style="background: #111110; padding: 24px; border-radius: 12px; margin-bottom: 24px;">
+            <h1 style="color: white; font-size: 24px; margin: 0;">
+              Thank you for contacting 
+              <span style="color: #f97316;">iQONEX</span>
+            </h1>
+          </div>
+
+          <div style="background: white; padding: 24px; border-radius: 12px;">
+            <p style="font-size: 15px; color: #2a2a2a; line-height: 1.7;">
+              Hi ${name},
+            </p>
+
+            <p style="font-size: 15px; color: #2a2a2a; line-height: 1.7;">
+              We received your message successfully.
+            </p>
+
+            <p style="font-size: 15px; color: #2a2a2a; line-height: 1.7;">
+              Our team will review your inquiry and get back to you as soon as possible.
+            </p>
+
+            <div style="margin-top: 24px; padding: 20px; background: #faf8f5; border-radius: 12px;">
+              <p style="margin: 0; font-size: 13px; color: #666;">
+                <strong>Project Type:</strong> ${projectType}
+              </p>
+            </div>
+          </div>
+
+          <p style="text-align: center; font-size: 11px; color: #aaa; margin-top: 24px;">
+            © the iqonex — Modern Digital Experiences
+          </p>
+        </div>
+      `,
+    });
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Contact form error:", error);
