@@ -9,8 +9,8 @@ const navLinks = [
   { label: "HOME", href: "/" },
   { label: "SERVICES", href: "/services" },
   { label: "ABOUT US", href: "/about" },
-  { label: "OUR WORK", href: "/#work" },
-  { label: "BLOG", href: "/#blog" },
+  { label: "OUR WORK", href: "/work" },
+  { label: "BLOG", href: "/blog" },
 ];
 
 export default function Navbar() {
@@ -33,7 +33,7 @@ export default function Navbar() {
       <nav className="relative mx-auto flex h-14 max-w-[1800px] items-center px-6">
         {/* LEFT — Logo */}
         <div className="flex-1">
-          <Link href="/" className="flex items-center">
+          <Link href="/#home" className="flex items-center">
             <Image
               src="/logo.png"
               alt="iQONEX"

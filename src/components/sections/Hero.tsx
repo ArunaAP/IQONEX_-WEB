@@ -52,6 +52,7 @@ export default function Hero() {
 
   return (
     <section
+      id="home"
       className="relative flex min-h-screen flex-col overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}

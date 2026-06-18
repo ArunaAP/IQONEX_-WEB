@@ -16,7 +16,6 @@ export default function Home() {
       <Marquee />
       <Work />
       <NextPages />
-      {/* More sections will be added here: About, Services, Work, etc. */}
     </>
   );
 }

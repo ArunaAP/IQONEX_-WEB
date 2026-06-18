@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const projects = [
   {
-    tag: "WEB",
+    tag: "ERP",
     title: "IQONEX POS",
     image: "/works/pos-system-img.png",
     featured: false,
@@ -21,12 +21,13 @@ const projects = [
   },
   {
     tag: "WEB",
-    title: "Comming soon",
-    image: null,
-    featured: false,
+    title: "Tree Haven Web",
+    image: "/works/tree-haven-img.jpg",
+    featured: true,
+    readMore: true,
   },
   {
-    tag: "WEB",
+    tag: "Branding",
     title: "Comming soon",
     image: null,
     featured: false,

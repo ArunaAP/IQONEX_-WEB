@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, DM_Sans, Geom } from "next/font/google";
+import { Bebas_Neue, DM_Sans } from "next/font/google";
+
 import "./globals.css";
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import SmoothScrolling from "@/components/providers/SmoothScrolling";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -17,17 +20,12 @@ const dmSans = DM_Sans({
   variable: "--font-dm",
 });
 
-const geom = Geom({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-geom",
-});
-
 export const metadata: Metadata = {
   title: {
     default: "theiqonex — Where Creativity Meets Technology",
     template: "%s | theiqonex",
   },
+
   description:
     "the iqonex is a creative software company specializing in UI/UX, Web Development, Branding, SEO, and ERP.",
 
@@ -46,11 +44,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html className={`${bebasNeue.variable} ${dmSans.variable} ${geom.variable}`}>
+    <html lang="en" className={`${bebasNeue.variable} ${dmSans.variable}`}>
       <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <SmoothScrolling>
+          <Navbar />
+
+          <main>{children}</main>
+
+          <Footer />
+        </SmoothScrolling>
       </body>
     </html>
   );
