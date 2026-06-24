@@ -31,7 +31,7 @@ export default function Marquee() {
         }
       `}</style>
 
-      <section className="overflow-hidden bg-[#f0ede8] py-4 select-none">
+      <section className="bg-surface overflow-hidden py-4 select-none">
         {/* Row 1 — left, light gray, mix of light/bold */}
         <div className="mb-1 w-full overflow-hidden">
           <div
@@ -41,7 +41,7 @@ export default function Marquee() {
             {doubled1.map((item, i) => (
               <span
                 key={i}
-                className="shrink-0 px-6 text-black/25"
+                className="shrink-0 px-6 text-white"
                 style={{
                   fontSize: "clamp(2.5rem, 5.5vw, 5rem)",
                   fontWeight: item.bold ? 800 : 300,
@@ -64,7 +64,7 @@ export default function Marquee() {
             {doubled2.map((item, i) => (
               <span
                 key={i}
-                className={`shrink-0 px-6 ${item.orange ? "text-orange-500" : "text-[#2a2a2a]"}`}
+                className={`shrink-0 px-6 ${item.orange ? "text-primary" : "text-[#444444]"}`}
                 style={{
                   fontSize: "clamp(2.5rem, 5.5vw, 5rem)",
                   fontWeight: item.bold ? 800 : 300,

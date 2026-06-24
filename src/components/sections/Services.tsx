@@ -68,7 +68,7 @@ export default function Services() {
               <div key={service.id}>
                 <motion.div
                   className={`relative flex cursor-pointer items-center transition-all duration-300 ${
-                    isActive || isHovered ? "bg-orange-500 px-4" : "px-0"
+                    isActive || isHovered ? "bg-primary px-4" : "px-0"
                   }`}
                   onClick={() => setActive(i)}
                   onMouseEnter={() => setHovered(i)}

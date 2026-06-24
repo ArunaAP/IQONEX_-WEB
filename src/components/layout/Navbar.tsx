@@ -79,7 +79,7 @@ export default function Navbar() {
 
         {/* RIGHT — Actions */}
         <div className="flex flex-1 items-center justify-end gap-3">
-          <button className="hidden items-center justify-center p-2 text-white/60 transition-colors hover:text-white md:flex">
+          {/* <button className="hidden items-center justify-center p-2 text-white/60 transition-colors hover:text-white md:flex">
             <svg
               width="16"
               height="16"
@@ -91,12 +91,12 @@ export default function Navbar() {
               <circle cx="11" cy="11" r="7" />
               <path d="m21 21-4.35-4.35" />
             </svg>
-          </button>
+          </button> */}
 
           <Link
             href="/contact"
             style={{ fontSize: "10px", letterSpacing: "0.12em", lineHeight: 1 }}
-            className="hidden items-center rounded-full bg-orange-500 px-5 py-2 font-bold text-white uppercase transition-colors hover:bg-orange-600 md:inline-flex"
+            className="hover:bg-primary-light bg-primary hidden items-center rounded-full px-5 py-2 font-bold text-black uppercase transition-colors hover:text-white md:inline-flex"
           >
             CONTACT
           </Link>
@@ -138,7 +138,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}
-              className="inline-flex items-center rounded-full bg-orange-500 px-6 py-2.5 text-[12px] font-bold tracking-widest text-white uppercase"
+              className="bg-primary hover:bg-primary-light inline-flex items-center rounded-full px-6 py-2.5 text-[12px] font-bold tracking-widest text-black uppercase"
             >
               CONTACT
             </Link>

@@ -21,7 +21,7 @@ export async function POST(req: Request) {
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #f0ede8;">
           <div style="background: #111110; padding: 24px; border-radius: 12px; margin-bottom: 24px;">
             <h1 style="color: white; font-size: 24px; margin: 0;">
-              New Contact from <span style="color: #f97316;">iQONEX</span>
+              New Contact from <span style="color: #dfff03;">iQONEX</span>
             </h1>
           </div>
 
@@ -33,8 +33,8 @@ export async function POST(req: Request) {
               </tr>
               <tr style="border-bottom: 1px solid #f0ede8;">
                 <td style="padding: 12px 0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #888;">Email</td>
-                <td style="padding: 12px 0; font-size: 14px; color: #f97316;">
-                  <a href="mailto:${email}" style="color: #f97316;">${email}</a>
+                <td style="padding: 12px 0; font-size: 14px; color: #dfff03;">
+                  <a href="mailto:${email}" style="color: #5a5a5a;">${email}</a>
                 </td>
               </tr>
               <tr style="border-bottom: 1px solid #f0ede8;">
@@ -53,7 +53,7 @@ export async function POST(req: Request) {
           </div>
 
           <div style="text-align: center; margin-top: 24px;">
-            <a href="mailto:${email}" style="background: #f97316; color: white; padding: 12px 24px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-decoration: none; text-transform: uppercase;">
+            <a href="mailto:${email}" style="background: #dfff03; color: black; padding: 12px 24px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-decoration: none; text-transform: uppercase;">
               Reply to ${name} →
             </a>
           </div>
@@ -76,7 +76,7 @@ export async function POST(req: Request) {
           <div style="background: #111110; padding: 24px; border-radius: 12px; margin-bottom: 24px;">
             <h1 style="color: white; font-size: 24px; margin: 0;">
               Thank you for contacting 
-              <span style="color: #f97316;">iQONEX</span>
+              <span style="color: #DFFF03;">iQONEX</span>
             </h1>
           </div>
 

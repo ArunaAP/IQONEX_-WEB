@@ -157,7 +157,7 @@ function PostCard({
 
           {/* Title */}
           <h2
-            className={`font-geom mb-3 leading-tight font-black text-[#2a2a2a] transition-colors duration-300 group-hover:text-orange-500 ${
+            className={`font-geom group-hover:text-primary mb-3 leading-tight font-black text-[#2a2a2a] transition-colors duration-300 ${
               featured ? "text-2xl md:text-4xl" : "text-lg"
             }`}
           >
@@ -173,7 +173,7 @@ function PostCard({
         {/* Read more */}
         <Link
           href={`/blog/${post.slug}`}
-          className="mt-6 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] text-orange-500 uppercase transition-colors group-hover:gap-3 hover:text-orange-600"
+          className="text-primary hover:text-primary-light mt-6 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase transition-colors group-hover:gap-3"
         >
           Read More
           <svg
@@ -233,7 +233,7 @@ export default function BlogPage() {
           >
             INSIGHTS &
             <br />
-            <span className="text-orange-500">IDEAS</span>
+            <span className="text-primary">IDEAS</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}

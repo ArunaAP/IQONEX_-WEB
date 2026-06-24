@@ -5,85 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import NextPages from "@/components/sections/Nextpages";
+import { projects } from "@/data/projects";
 
 const categories = ["ALL", "WEB", "MOBILE", "BRANDING", "SEO", "ERP"];
-
-const projects = [
-  {
-    id: 1,
-    title: "IQONEX POS",
-    category: "ERP",
-    tag: "ERP",
-    image: "/works/pos-system-img.png",
-    year: "2026",
-    desc: "A modern point-of-sale system built for retail businesses.",
-  },
-  {
-    id: 2,
-    title: "Ceylon Fresh Flower Farm",
-    category: "WEB",
-    tag: "WEB",
-    image: "/works/ceylon-fresh-flower.png",
-    year: "2026",
-    desc: "E-commerce platform for a flower farm business in Sri Lanka.",
-    featured: false,
-  },
-  {
-    id: 3,
-    title: "Tree Haven - Tree house resort",
-    category: "WEB",
-    tag: "WEB",
-    image: "/works/tree-haven-img.jpg",
-    year: "2026",
-    desc: "Custom design website for a tree house resort.",
-    featured: true,
-  },
-  {
-    id: 4,
-    title: "SEO Campaign — RetailCo",
-    category: "SEO",
-    tag: "SEO",
-    image: null,
-    year: "2023",
-    desc: "Organic traffic grew 240% in 6 months through targeted SEO.",
-  },
-  {
-    id: 5,
-    title: "Mobile App — DeliveryX",
-    category: "MOBILE",
-    tag: "MOBILE",
-    image: null,
-    year: "2024",
-    desc: "Cross-platform delivery tracking app for drivers and customers.",
-  },
-  {
-    id: 6,
-    title: "ERP System — ManufacturePro",
-    category: "ERP",
-    tag: "ERP",
-    image: null,
-    year: "2023",
-    desc: "Custom ERP solution managing inventory, HR, and finance.",
-  },
-  {
-    id: 7,
-    title: "Portfolio — Creative Agency",
-    category: "WEB",
-    tag: "WEB",
-    image: null,
-    year: "2024",
-    desc: "Award-winning portfolio site for a creative agency.",
-  },
-  {
-    id: 8,
-    title: "Brand — GreenLeaf",
-    category: "BRANDING",
-    tag: "BRANDING",
-    image: null,
-    year: "2024",
-    desc: "Eco-friendly brand identity with packaging design.",
-  },
-];
 
 export default function WorkPage() {
   const [active, setActive] = useState("ALL");
@@ -94,8 +18,8 @@ export default function WorkPage() {
   return (
     <section className="flex flex-col">
       {/* ── HERO ── */}
-      <div className="relative overflow-hidden bg-[#111110] px-6 pt-32 pb-16 md:px-10 lg:px-16">
-        {/* Background faint text */}
+      <div className="bg-background relative overflow-hidden px-6 pt-32 pb-16 md:px-10 lg:px-16">
+        {/* Faint background text */}
         <div
           className="pointer-events-none absolute right-[-2%] bottom-[-10%] select-none"
           aria-hidden
@@ -113,7 +37,7 @@ export default function WorkPage() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-4 text-[10px] tracking-[0.3em] text-white/30 uppercase"
+            className="text-muted mb-4 text-[10px] tracking-[0.3em] uppercase"
           >
             (OUR WORK)
           </motion.p>
@@ -121,28 +45,28 @@ export default function WorkPage() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-geom leading-[0.92] font-black text-white"
+            className="font-geom text-foreground leading-[0.92] font-black"
             style={{ fontSize: "clamp(3rem, 10vw, 8rem)" }}
           >
             OUR LATEST
             <br />
-            <span className="text-orange-500">PROJECTS</span>
+            <span style={{ color: "var(--color-primary)" }}>PROJECTS</span>
           </motion.h1>
         </div>
       </div>
 
       {/* ── FILTER TABS ── */}
-      <div className="border-b border-black/10 bg-[#f0ede8] px-6 pt-10 md:px-10 lg:px-16">
+      <div className="border-border bg-surface border-b px-6 pt-8 md:px-10 lg:px-16">
         <div className="scrollbar-hide mx-auto flex max-w-7xl gap-1 overflow-x-auto pb-0">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`shrink-0 rounded-full px-5 py-2.5 text-[10px] font-bold tracking-[0.15em] uppercase transition-all duration-200 ${
-                active === cat
-                  ? "bg-black text-white"
-                  : "text-black/40 hover:bg-black/5 hover:text-black"
-              }`}
+              className="shrink-0 rounded-full px-5 py-2.5 text-[10px] font-bold tracking-[0.15em] uppercase transition-all duration-200"
+              style={{
+                backgroundColor: active === cat ? "var(--color-primary)" : "transparent",
+                color: active === cat ? "#000000" : "var(--color-muted)",
+              }}
             >
               {cat}
             </button>
@@ -151,7 +75,7 @@ export default function WorkPage() {
       </div>
 
       {/* ── PROJECTS GRID ── */}
-      <div className="bg-[#f0ede8] px-6 py-12 md:px-10 lg:px-16">
+      <div className="bg-surface px-6 py-12 md:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <AnimatePresence mode="wait">
             <motion.div
@@ -184,28 +108,61 @@ export default function WorkPage() {
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   ) : (
-                    <div className="absolute inset-0 bg-[#d8d8d4] transition-colors duration-300 group-hover:bg-[#ccccc8]" />
+                    <div className="absolute inset-0 bg-[#1a1a1a]">
+                      {/* Neon glow for no-image cards */}
+                      <motion.div
+                        className="absolute inset-0"
+                        animate={{ opacity: hovered === project.id ? 0.3 : 0.1 }}
+                        transition={{ duration: 0.4 }}
+                        style={{
+                          backgroundImage:
+                            "radial-gradient(circle at 30% 40%, var(--color-primary) 0%, transparent 60%)",
+                        }}
+                      />
+                    </div>
                   )}
 
-                  {/* Overlay */}
-                  <div
-                    className={`absolute inset-0 transition-all duration-500 ${
-                      project.image
-                        ? "bg-black/20 group-hover:bg-black/60"
-                        : "bg-transparent group-hover:bg-black/5"
-                    }`}
+                  {/* Overlay — lightens on hover instead of darkening */}
+                  <motion.div
+                    className="absolute inset-0"
+                    animate={{
+                      background:
+                        hovered === project.id
+                          ? project.image
+                            ? "linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0.2) 100%)"
+                            : "rgba(0,0,0,0.0)"
+                          : project.image
+                            ? "linear-gradient(160deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.5) 100%)"
+                            : "rgba(0,0,0,0.0)",
+                    }}
+                    transition={{ duration: 0.4 }}
                   />
 
-                  {/* Tag — top left */}
+                  {/* Neon bottom line on hover */}
+                  <motion.div
+                    className="absolute right-0 bottom-0 left-0 h-[2px] origin-left"
+                    style={{ backgroundColor: "var(--color-primary)" }}
+                    animate={{ scaleX: hovered === project.id ? 1 : 0 }}
+                    transition={{ duration: 0.45, ease: "easeOut" }}
+                  />
+
+                  {/* Tag — glass */}
                   <div className="absolute top-4 left-4 z-10">
-                    <span className="rounded-full border border-black/20 bg-white/80 px-3 py-1 text-[9px] font-bold tracking-widest text-black/60 uppercase backdrop-blur-sm">
+                    <span
+                      className="rounded-full px-3 py-1 text-[9px] font-bold tracking-widest text-white uppercase backdrop-blur-md"
+                      style={{
+                        background: "rgba(255,255,255,0.08)",
+                        border: "1px solid rgba(255,255,255,0.18)",
+                        boxShadow: "0 2px 12px rgba(0,0,0,0.2)",
+                      }}
+                    >
                       {project.tag}
                     </span>
                   </div>
 
                   {/* Year — top right */}
                   <div className="absolute top-4 right-4 z-10">
-                    <span className="text-[9px] font-medium tracking-widest text-black/30 transition-colors duration-300 group-hover:text-white/50">
+                    <span className="text-[9px] font-medium tracking-widest text-white/30 transition-colors duration-300 group-hover:text-white/60">
                       {project.year}
                     </span>
                   </div>
@@ -219,9 +176,7 @@ export default function WorkPage() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.2 }}
-                          className={`mb-2 text-[11px] leading-relaxed ${
-                            project.image ? "text-white/70" : "text-black/40"
-                          }`}
+                          className="mb-2 text-[11px] leading-relaxed text-white/60"
                         >
                           {project.desc}
                         </motion.p>
@@ -229,18 +184,24 @@ export default function WorkPage() {
                     </AnimatePresence>
 
                     <div className="flex items-end justify-between">
-                      <h3
-                        className={`font-geom leading-none font-black transition-colors duration-300 ${
-                          project.image ? "text-white" : "text-[#2a2a2a]"
-                        }`}
+                      <motion.h3
+                        className="font-geom leading-none font-black"
+                        animate={{
+                          color:
+                            hovered === project.id
+                              ? "var(--color-primary)"
+                              : project.image
+                                ? "#ffffff"
+                                : "#888888",
+                        }}
+                        transition={{ duration: 0.3 }}
                         style={{ fontSize: "clamp(1rem, 2.5vw, 1.5rem)" }}
                       >
                         {project.title}
-                      </h3>
+                      </motion.h3>
 
                       {/* Arrow on hover */}
                       <motion.div
-                        initial={{ opacity: 0, x: -8 }}
                         animate={{
                           opacity: hovered === project.id ? 1 : 0,
                           x: hovered === project.id ? 0 : -8,
@@ -248,16 +209,15 @@ export default function WorkPage() {
                         transition={{ duration: 0.2 }}
                       >
                         <div
-                          className={`flex h-8 w-8 items-center justify-center rounded-full ${
-                            project.image ? "bg-white/20" : "bg-black/10"
-                          }`}
+                          className="flex h-8 w-8 items-center justify-center rounded-full"
+                          style={{ backgroundColor: "var(--color-primary)" }}
                         >
                           <svg
-                            className={`h-3.5 w-3.5 ${project.image ? "text-white" : "text-black"}`}
+                            className="h-3.5 w-3.5 text-black"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
-                            strokeWidth="2"
+                            strokeWidth="2.5"
                           >
                             <path d="M5 12h14M12 5l7 7-7 7" />
                           </svg>
@@ -273,24 +233,23 @@ export default function WorkPage() {
           {/* Empty state */}
           {filtered.length === 0 && (
             <div className="flex flex-col items-center justify-center py-24 text-center">
-              <p className="font-geom mb-3 text-4xl font-black text-black/10">COMING SOON</p>
-              <p className="font-dm text-sm text-black/30">No projects in this category yet.</p>
+              <p className="font-geom text-muted mb-3 text-4xl font-black">COMING SOON</p>
+              <p className="font-dm text-muted text-sm">No projects in this category yet.</p>
             </div>
           )}
 
           {/* Project count */}
-          <div className="mt-8 flex items-center justify-between border-t border-black/10 pt-6">
-            <p className="font-dm text-[10px] tracking-widest text-black/30 uppercase">
+          <div className="border-border mt-8 flex items-center justify-between border-t pt-6">
+            <p className="font-dm text-muted text-[10px] tracking-widest uppercase">
               {filtered.length} project{filtered.length !== 1 ? "s" : ""}
             </p>
-            <p className="font-dm text-[10px] tracking-widest text-black/20 uppercase">
+            <p className="font-dm text-muted text-[10px] tracking-widest uppercase">
               {active === "ALL" ? "Showing all" : active}
             </p>
           </div>
         </div>
       </div>
 
-      {/* ── NEXT PAGES ── */}
       <NextPages />
     </section>
   );

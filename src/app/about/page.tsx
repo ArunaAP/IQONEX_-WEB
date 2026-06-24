@@ -74,7 +74,7 @@ export default function AboutPage() {
           >
             WE ARE THE
             <br />
-            CREATIVE <span className="text-orange-500">MINDS</span>
+            CREATIVE <span className="text-primary">MINDS</span>
             <br />
             BEHIND THE CODE
           </motion.h1>
@@ -82,7 +82,7 @@ export default function AboutPage() {
       </div>
 
       {/* ── INTRO ── */}
-      <div className="bg-[#f0ede8] px-6 py-20 md:px-10 lg:px-16">
+      <div className="bg-surface px-6 py-20 md:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -93,10 +93,10 @@ export default function AboutPage() {
             <p className="mb-4 text-[10px] tracking-[0.25em] text-black/30 uppercase">
               (WHO WE ARE)
             </p>
-            <p className="font-dm text-2xl leading-snug font-bold text-[#2a2a2a] md:text-3xl">
+            <p className="font-dm text-2xl leading-snug font-bold text-white md:text-3xl">
               Our software company is a creative and{" "}
-              <span className="text-orange-500">technology-driven</span> firm that specializes in
-              providing a wide range of <span className="text-orange-500">digital services</span> to
+              <span className="text-primary">technology-driven</span> firm that specializes in
+              providing a wide range of <span className="text-primary">digital services</span> to
               clients.
             </p>
           </motion.div>
@@ -108,19 +108,19 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex flex-col gap-4"
           >
-            <p className="font-dm text-sm leading-relaxed text-black/50">
+            <p className="font-dm text-sm leading-relaxed text-white/50">
               Founded with a passion for design and technology, iQONEX has grown into a full-service
               digital agency. We work with startups and established businesses alike, crafting
               solutions that are not only beautiful but functional and scalable.
             </p>
-            <p className="font-dm text-sm leading-relaxed text-black/50">
+            <p className="font-dm text-sm leading-relaxed text-white/50">
               From UI/UX design to full-stack development, branding, SEO, and ERP systems — we cover
               the entire digital spectrum under one roof.
             </p>
             <div className="mt-2">
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-black/20 px-6 py-3 text-[10px] font-medium tracking-[0.15em] text-black uppercase transition-all duration-300 hover:border-black/60 hover:bg-black hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-[10px] font-medium tracking-[0.15em] text-white uppercase transition-all duration-300 hover:border-white/60 hover:bg-white hover:text-black"
               >
                 Get in Touch
               </a>
@@ -199,7 +199,7 @@ export default function AboutPage() {
           >
             PEOPLE BEHIND
             <br />
-            <span className="text-orange-500">IQONEX</span>
+            <span className="text-primary">IQONEX</span>
           </h2>
 
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">

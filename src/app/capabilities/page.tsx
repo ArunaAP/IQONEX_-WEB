@@ -102,7 +102,7 @@ export default function CapabilitiesPage() {
           >
             OUR
             <br />
-            <span className="text-orange-500">CAPABILITIES</span>
+            <span className="text-primary">CAPABILITIES</span>
           </motion.h1>
 
           <motion.p
@@ -118,9 +118,9 @@ export default function CapabilitiesPage() {
       </div>
 
       {/* ── CAPABILITIES LIST ── */}
-      <div className="bg-[#f0ede8] px-6 py-16 md:px-10 lg:px-16">
+      <div className="bg-surface px-6 py-16 md:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <div className="border-t border-black/10">
+          <div className="border-t border-white/60">
             {capabilities.map((cap, i) => {
               const isOpen = active === i;
               return (
@@ -130,7 +130,7 @@ export default function CapabilitiesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="border-b border-black/10"
+                  className="border-b border-white/10"
                 >
                   {/* Row header */}
                   <button
@@ -138,11 +138,11 @@ export default function CapabilitiesPage() {
                     className="group flex w-full items-center justify-between gap-6 py-7 text-left"
                   >
                     <div className="flex items-center gap-6 md:gap-12">
-                      <span className="font-dm shrink-0 text-[10px] tracking-widest text-black/25">
+                      <span className="font-dm shrink-0 text-[10px] tracking-widest text-white/75">
                         {cap.id}
                       </span>
                       <h2
-                        className="font-geom leading-none font-black text-[#2a2a2a] transition-colors duration-300 group-hover:text-orange-500"
+                        className="font-geom group-hover:text-primary leading-none font-black text-white/60 transition-colors duration-300"
                         style={{ fontSize: "clamp(1.5rem, 4vw, 3rem)" }}
                       >
                         {cap.title}
@@ -150,19 +150,19 @@ export default function CapabilitiesPage() {
                     </div>
 
                     <div className="flex shrink-0 items-center gap-4">
-                      <span className="font-dm hidden rounded-full border border-black/15 px-3 py-1 text-[9px] tracking-[0.2em] text-black/30 uppercase md:block">
+                      <span className="font-dm hidden rounded-full border border-white/50 px-3 py-1 text-[9px] tracking-[0.2em] text-white/80 uppercase md:block">
                         {cap.category}
                       </span>
                       {/* Plus / minus */}
                       <div
                         className={`flex h-8 w-8 items-center justify-center rounded-full border transition-all duration-300 ${
                           isOpen
-                            ? "border-orange-500 bg-orange-500"
-                            : "border-black/20 bg-transparent"
+                            ? "border-primtext-primary bg-primtext-primary"
+                            : "border-white/10 bg-transparent"
                         }`}
                       >
                         <svg
-                          className={`h-3.5 w-3.5 transition-all duration-300 ${isOpen ? "rotate-45 text-white" : "text-black/40"}`}
+                          className={`h-3.5 w-3.5 transition-all duration-300 ${isOpen ? "rotate-45 text-white" : "text-white/70"}`}
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
@@ -185,16 +185,16 @@ export default function CapabilitiesPage() {
                         className="overflow-hidden"
                       >
                         <div className="grid gap-8 pb-10 pl-10 md:grid-cols-2 md:pl-24">
-                          <p className="font-dm text-sm leading-relaxed text-black/50">
+                          <p className="font-dm text-sm leading-relaxed text-white/50">
                             {cap.desc}
                           </p>
                           <ul className="flex flex-col gap-2">
                             {cap.points.map((point, j) => (
                               <li
                                 key={j}
-                                className="font-dm flex items-center gap-3 text-sm text-[#2a2a2a]"
+                                className="font-dm flex items-center gap-3 text-sm text-white"
                               >
-                                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500" />
+                                <span className="bg-primtext-primary h-1.5 w-1.5 shrink-0 rounded-full" />
                                 {point}
                               </li>
                             ))}
@@ -215,7 +215,7 @@ export default function CapabilitiesPage() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 md:grid-cols-4">
           {[
             { value: "6", label: "Core Capabilities" },
-            { value: "50+", label: "Projects Delivered" },
+            { value: "10+", label: "Projects Delivered" },
             { value: "100%", label: "Client Satisfaction" },
             { value: "24/7", label: "Support Available" },
           ].map((stat, i) => (
@@ -242,19 +242,19 @@ export default function CapabilitiesPage() {
       </div>
 
       {/* ── CTA ── */}
-      <div className="bg-[#f0ede8] px-6 py-20 md:px-10 lg:px-16">
+      <div className="bg-scroll px-6 py-20 md:px-10 lg:px-16">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <motion.h2
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-geom leading-[0.92] font-black text-[#2a2a2a]"
+            className="font-geom leading-[0.92] font-black text-white"
             style={{ fontSize: "clamp(2rem, 6vw, 5rem)" }}
           >
             READY TO START
             <br />
-            <span className="text-orange-500">YOUR PROJECT?</span>
+            <span className="text-primary">YOUR PROJECT?</span>
           </motion.h2>
 
           <motion.div
@@ -266,7 +266,7 @@ export default function CapabilitiesPage() {
           >
             <a
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-8 py-4 text-[10px] font-bold tracking-[0.2em] text-white uppercase transition-colors duration-300 hover:bg-orange-600"
+              className="bg-primary hover:bg-primary-light inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-[10px] font-bold tracking-[0.2em] text-black uppercase transition-colors duration-300 hover:bg-orange-600"
             >
               Get in Touch →
             </a>

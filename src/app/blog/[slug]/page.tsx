@@ -40,7 +40,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <p className="font-dm mb-6 text-sm text-black/40">Post not found</p>
           <Link
             href="/blog"
-            className="text-[10px] font-bold tracking-widest text-orange-500 uppercase hover:text-orange-600"
+            className="text-primary hover:text-primary-light text-[10px] font-bold tracking-widest uppercase"
           >
             ← Back to Blog
           </Link>
@@ -71,7 +71,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </Link>
 
           <div className="mb-6 flex items-center gap-3">
-            <span className="rounded-full bg-orange-500 px-3 py-1 text-[9px] font-bold tracking-widest text-white uppercase">
+            <span className="bg-primary rounded-full px-3 py-1 text-[9px] font-bold tracking-widest text-white uppercase">
               {post.category}
             </span>
             <span className="font-dm text-[10px] text-white/30">{post.date}</span>
@@ -115,7 +115,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-[10px] font-bold tracking-[0.15em] text-white uppercase transition-colors hover:bg-orange-600"
+              className="bg-primary hover:bg-primary-light inline-flex items-center gap-2 rounded-full px-6 py-3 text-[10px] font-bold tracking-[0.15em] text-white uppercase transition-colors"
             >
               Work With Us →
             </Link>

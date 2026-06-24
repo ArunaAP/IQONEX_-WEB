@@ -18,7 +18,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const inputClass =
-  "mt-1 w-full border-b border-black/20 bg-transparent py-2 text-sm outline-none transition-colors duration-200 focus:border-orange-500 placeholder:text-black/25 font-dm text-[#2a2a2a]";
+  "mt-1 w-full border-b border-black/20 bg-transparent py-2 text-sm outline-none transition-colors duration-200 focus:border-primary placeholder:text-black/25 font-dm text-[#2a2a2a]";
 
 const labelClass = "text-[10px] font-bold tracking-[0.15em] uppercase text-black/40";
 
@@ -41,7 +41,10 @@ export default function ContactPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      if (res.ok) { setSubmitted(true); reset(); }
+      if (res.ok) {
+        setSubmitted(true);
+        reset();
+      }
     } catch (e) {
       console.error(e);
     } finally {
@@ -51,7 +54,6 @@ export default function ContactPage() {
 
   return (
     <section className="flex flex-col">
-
       {/* ── HERO ── */}
       <div className="relative flex min-h-[55vh] items-center overflow-hidden text-white">
         <Image
@@ -70,12 +72,12 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="font-geom font-black leading-[0.95]"
+            className="font-geom leading-[0.95] font-black"
             style={{ fontSize: "clamp(2.5rem, 8vw, 6rem)" }}
           >
             LET'S BRING YOUR
             <br />
-            IDEAS TO <span className="text-orange-500">REAL LIFE</span>
+            IDEAS TO <span className="text-primary">REAL LIFE</span>
           </motion.h1>
 
           <motion.div
@@ -84,10 +86,16 @@ export default function ContactPage() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-8 flex flex-wrap gap-8"
           >
-            <a href="mailto:theiqonex@gmail.com" className="text-[11px] font-dm text-white/50 underline underline-offset-4 hover:text-orange-400 transition-colors">
+            <a
+              href="mailto:theiqonex@gmail.com"
+              className="font-dm hover:text-primary text-[11px] text-white/50 underline underline-offset-4 transition-colors"
+            >
               theiqonex@gmail.com
             </a>
-            <a href="tel:+94769828585" className="text-[11px] font-dm text-white/50 hover:text-white transition-colors">
+            <a
+              href="tel:+94769828585"
+              className="font-dm text-[11px] text-white/50 transition-colors hover:text-white"
+            >
               +94 7698 28585
             </a>
           </motion.div>
@@ -95,10 +103,9 @@ export default function ContactPage() {
       </div>
 
       {/* ── FORM SECTION ── */}
-      <div className="bg-[#f0ede8]">
+      <div className="bg-surface px-6 py-20 md:px-10 lg:px-16">
         <div className="mx-auto w-full max-w-7xl px-6 py-20 md:px-10 lg:px-16">
           <div className="grid gap-16 md:grid-cols-2">
-
             {/* LEFT */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -107,36 +114,45 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               className="flex flex-col justify-center"
             >
-              <p className="mb-3 text-[10px] tracking-[0.3em] uppercase text-orange-500">Contact Us</p>
+              <p className="text-primary mb-3 text-[10px] tracking-[0.3em] uppercase">Contact Us</p>
               <h2
-                className="font-geom font-black leading-[0.95] text-[#2a2a2a] mb-6"
+                className="font-geom mb-6 leading-[0.95] font-black text-white"
                 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
               >
                 START YOUR
                 <br />
-                <span className="text-orange-500">PROJECT</span> TODAY
+                <span className="text-primary">PROJECT</span> TODAY
               </h2>
-              <p className="text-sm leading-relaxed text-black/50 font-dm max-w-sm">
-                We help turn your ideas into real digital products. Tell us what you're building and we'll make it happen.
+              <p className="font-dm max-w-sm text-sm leading-relaxed text-white/50">
+                We help turn your ideas into real digital products. Tell us what you're building and
+                we'll make it happen.
               </p>
 
               {/* Info blocks */}
-              <div className="mt-10 flex flex-col gap-4 border-t border-black/10 pt-8">
+              <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-8">
                 <div>
-                  <p className="text-[9px] tracking-[0.2em] uppercase text-black/30 mb-1">Email</p>
-                  <a href="mailto:theiqonex@gmail.com" className="text-sm font-dm text-[#2a2a2a] hover:text-orange-500 transition-colors">
+                  <p className="mb-1 text-[9px] tracking-[0.2em] text-white/30 uppercase">Email</p>
+                  <a
+                    href="mailto:theiqonex@gmail.com"
+                    className="font-dm hover:text-primary text-sm text-white transition-colors"
+                  >
                     theiqonex@gmail.com
                   </a>
                 </div>
                 <div>
-                  <p className="text-[9px] tracking-[0.2em] uppercase text-black/30 mb-1">Phone</p>
-                  <a href="tel:+94769828585" className="text-sm font-dm text-[#2a2a2a] hover:text-orange-500 transition-colors">
+                  <p className="mb-1 text-[9px] tracking-[0.2em] text-white/30 uppercase">Phone</p>
+                  <a
+                    href="tel:+94769828585"
+                    className="font-dm hover:text-primary text-sm text-white transition-colors"
+                  >
                     +94 7698 28585
                   </a>
                 </div>
                 <div>
-                  <p className="text-[9px] tracking-[0.2em] uppercase text-black/30 mb-1">Location</p>
-                  <p className="text-sm font-dm text-[#2a2a2a]">Sri Lanka / Bandarawela</p>
+                  <p className="mb-1 text-[9px] tracking-[0.2em] text-white/30 uppercase">
+                    Location
+                  </p>
+                  <p className="font-dm text-sm text-white/50">Sri Lanka / Bandarawela</p>
                 </div>
               </div>
             </motion.div>
@@ -147,9 +163,9 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="rounded-2xl bg-[#fafaf8] p-6 md:p-8 border border-black/5"
+              className="rounded-2xl border border-black/5 bg-[#fafaf8] p-6 md:p-8"
             >
-              <p className="font-geom font-bold text-sm tracking-[0.1em] text-orange-500 mb-6 uppercase">
+              <p className="font-geom mb-6 text-sm font-bold tracking-[0.1em] text-black uppercase">
                 Send us a message
               </p>
 
@@ -159,67 +175,110 @@ export default function ContactPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center justify-center py-16 text-center"
                 >
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-orange-500">
-                    <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <div className="bg-primary mb-4 flex h-12 w-12 items-center justify-center rounded-full">
+                    <svg
+                      className="h-6 w-6 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="font-dm font-bold text-lg text-[#2a2a2a] mb-1">Message sent!</h3>
-                  <p className="text-sm text-black/40 font-dm">We'll get back to you within 24 hours.</p>
-                  <button onClick={() => setSubmitted(false)} className="mt-6 text-[10px] font-bold tracking-widest uppercase text-orange-500 hover:text-orange-600 transition-colors">
+                  <h3 className="font-dm mb-1 text-lg font-bold text-[#2a2a2a]">Message sent!</h3>
+                  <p className="font-dm text-sm text-black/40">
+                    We'll get back to you within 24 hours.
+                  </p>
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="hover:text-primary mt-6 text-[10px] font-bold tracking-widest text-black uppercase transition-colors"
+                  >
                     Send another
                   </button>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 gap-5 md:grid-cols-2">
-
+                <form
+                  onSubmit={handleSubmit(onSubmit)}
+                  className="grid grid-cols-1 gap-5 md:grid-cols-2"
+                >
                   <div>
                     <label className={labelClass}>Name</label>
-                    <input {...register("name")} type="text" placeholder="Your full name" className={inputClass} />
-                    {errors.name && <p className="mt-1 text-[10px] text-orange-500">{errors.name.message}</p>}
+                    <input
+                      {...register("name")}
+                      type="text"
+                      placeholder="Your full name"
+                      className={inputClass}
+                    />
+                    {errors.name && (
+                      <p className="mt-1 text-[10px] text-black">{errors.name.message}</p>
+                    )}
                   </div>
 
                   <div>
                     <label className={labelClass}>Email</label>
-                    <input {...register("email")} type="email" placeholder="your@email.com" className={inputClass} />
-                    {errors.email && <p className="mt-1 text-[10px] text-orange-500">{errors.email.message}</p>}
+                    <input
+                      {...register("email")}
+                      type="email"
+                      placeholder="your@email.com"
+                      className={inputClass}
+                    />
+                    {errors.email && (
+                      <p className="text-primary mt-1 text-[10px]">{errors.email.message}</p>
+                    )}
                   </div>
 
                   <div>
                     <label className={labelClass}>Phone (optional)</label>
-                    <input {...register("phone")} type="tel" placeholder="+94 xxx xxx xxx" className={inputClass} />
+                    <input
+                      {...register("phone")}
+                      type="tel"
+                      placeholder="+94 xxx xxx xxx"
+                      className={inputClass}
+                    />
                   </div>
 
                   <div>
                     <label className={labelClass}>Project Type</label>
-                    <input {...register("projectType")} type="text" placeholder="Web / Mobile / System" className={inputClass} />
-                    {errors.projectType && <p className="mt-1 text-[10px] text-orange-500">{errors.projectType.message}</p>}
+                    <input
+                      {...register("projectType")}
+                      type="text"
+                      placeholder="Web / Mobile / System"
+                      className={inputClass}
+                    />
+                    {errors.projectType && (
+                      <p className="text-primary mt-1 text-[10px]">{errors.projectType.message}</p>
+                    )}
                   </div>
 
                   <div className="md:col-span-2">
                     <label className={labelClass}>What are you planning to build?</label>
-                    <textarea {...register("message")} rows={4} placeholder="Describe your project..." className={`${inputClass} resize-none`} />
-                    {errors.message && <p className="mt-1 text-[10px] text-orange-500">{errors.message.message}</p>}
+                    <textarea
+                      {...register("message")}
+                      rows={4}
+                      placeholder="Describe your project..."
+                      className={`${inputClass} resize-none`}
+                    />
+                    {errors.message && (
+                      <p className="text-primary mt-1 text-[10px]">{errors.message.message}</p>
+                    )}
                   </div>
 
                   <div className="flex justify-end md:col-span-2">
                     <button
                       type="submit"
                       disabled={loading}
-                      className="rounded-full bg-orange-500 px-8 py-3 text-[10px] font-bold tracking-widest uppercase text-white transition-colors hover:bg-orange-600 disabled:opacity-50"
+                      className="hover:bg-primary rounded-full bg-black px-8 py-3 text-[10px] font-bold tracking-widest text-white uppercase transition-colors hover:text-black disabled:opacity-50"
                     >
                       {loading ? "Sending..." : "Send Message →"}
                     </button>
                   </div>
-
                 </form>
               )}
             </motion.div>
-
           </div>
         </div>
       </div>
-
     </section>
   );
 }

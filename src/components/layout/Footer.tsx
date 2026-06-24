@@ -2,9 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 const socials = [
-  { label: "INSTAGRAM", href: "https://instagram.com" },
-  { label: "FACEBOOK", href: "https://facebook.com" },
-  { label: "LINKEDIN", href: "https://linkedin.com" },
+  {
+    name: "INSTAGRAM",
+    url: "https://instagram.com/theiqonex",
+  },
+  {
+    name: "FACEBOOK",
+    url: "https://facebook.com/theiqonex",
+  },
+  {
+    name: "LINKEDIN",
+    url: "https://linkedin.com/company/theiqonex",
+  },
 ];
 
 export default function Footer() {
@@ -50,7 +59,7 @@ export default function Footer() {
           className="font-geom mb-6 leading-none font-black text-white"
           style={{ fontSize: "clamp(3rem, 10vw, 6rem)" }}
         >
-          GET IN TOUCH <span className="text-orange-500">@</span>
+          GET IN TOUCH <span className="text-primary">@</span>
         </h2>
 
         {/* Contact + socials row */}
@@ -58,7 +67,7 @@ export default function Footer() {
           <div className="flex flex-wrap gap-6">
             <a
               href="mailto:theiqonex@gmail.com"
-              className="font-dm text-sm tracking-wide text-white/50 underline decoration-white/20 underline-offset-4 transition-colors hover:text-orange-400"
+              className="font-dm hover:text-primary text-sm tracking-wide text-white/50 underline decoration-white/20 underline-offset-4 transition-colors"
             >
               theiqonex@gmail.com
             </a>
@@ -72,15 +81,15 @@ export default function Footer() {
 
           {/* Socials */}
           <div className="flex gap-2">
-            {socials.map((s) => (
+            {socials.map((social) => (
               <a
-                key={s.label}
-                href={s.href}
+                key={social.name}
+                href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-white/20 px-4 py-1.5 text-[9px] font-medium tracking-widest text-white/50 transition-all duration-200 hover:border-white/50 hover:text-white"
+                className="rounded-full border border-white/20 px-3 py-1.5 text-[9px] font-medium tracking-widest text-white/60 transition-all duration-200 hover:border-white/50 hover:text-white"
               >
-                {s.label}
+                {social.name}
               </a>
             ))}
           </div>

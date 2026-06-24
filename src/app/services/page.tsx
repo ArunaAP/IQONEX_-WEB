@@ -126,13 +126,13 @@ export default function ServicesPage() {
   return (
     <section className="flex flex-col">
       {/* ── HERO ── */}
-      <div className="relative overflow-hidden bg-[#111110] px-6 pt-32 pb-20 md:px-10 lg:px-16">
+      <div className="bg-background relative overflow-hidden px-6 pt-32 pb-20 md:px-10 lg:px-16">
         <Image
           src="/services-bg.png"
           alt="Services background"
           fill
           priority
-          className="object-cover object-center opacity-30"
+          className="object-cover object-center opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80" />
@@ -142,7 +142,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-4 text-[10px] tracking-[0.3em] text-white/30 uppercase"
+            className="text-muted mb-4 text-[10px] tracking-[0.3em] uppercase"
           >
             (OUR SERVICES)
           </motion.p>
@@ -150,18 +150,18 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-geom leading-[0.92] font-black text-white"
+            className="font-geom text-foreground leading-[0.92] font-black"
             style={{ fontSize: "clamp(3rem, 10vw, 8rem)" }}
           >
             WHAT WE
             <br />
-            <span className="text-orange-500">OFFER</span>
+            <span style={{ color: "var(--color-primary)" }}>OFFER</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="font-dm mt-6 max-w-lg text-sm leading-relaxed text-white/40"
+            className="font-dm text-muted mt-6 max-w-lg text-sm leading-relaxed"
           >
             End-to-end digital services — from design and development to branding, SEO, and
             enterprise systems.
@@ -170,8 +170,8 @@ export default function ServicesPage() {
       </div>
 
       {/* ── SERVICE ACCORDION LIST ── */}
-      <div className="bg-[#f0ede8] px-6 py-16 md:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl border-t border-black/10">
+      <div className="bg-surface px-6 py-16 md:px-10 lg:px-16">
+        <div className="border-border mx-auto max-w-7xl border-t">
           {services.map((service, i) => {
             const isOpen = active === i;
             const isHovered = hovered === i;
@@ -183,7 +183,7 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.07 }}
-                className="border-b border-black/10"
+                className="border-border border-b"
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
@@ -194,7 +194,7 @@ export default function ServicesPage() {
                 >
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex items-center gap-6 md:gap-10">
-                      <span className="font-dm shrink-0 text-[10px] tracking-widest text-black/20">
+                      <span className="font-dm text-muted shrink-0 text-[10px] tracking-widest">
                         {service.id}
                       </span>
                       <div>
@@ -202,28 +202,37 @@ export default function ServicesPage() {
                           className="font-geom leading-none font-black transition-colors duration-300"
                           style={{
                             fontSize: "clamp(1.8rem, 5vw, 4rem)",
-                            color: isOpen || isHovered ? "#f97316" : "#2a2a2a",
+                            color:
+                              isOpen || isHovered
+                                ? "var(--color-primary)"
+                                : "var(--color-foreground)",
                           }}
                         >
                           {service.title}
                         </h2>
-                        <p className="font-dm mt-1 hidden text-[11px] text-black/30 md:block">
+                        <p className="font-dm text-muted mt-1 hidden text-[11px] md:block">
                           {service.tagline}
                         </p>
                       </div>
                     </div>
 
                     <div className="flex shrink-0 items-center gap-3">
-                      <span className="font-dm hidden rounded-full border border-black/10 px-3 py-1 text-[9px] tracking-[0.2em] text-black/25 uppercase md:block">
+                      <span className="font-dm border-border text-muted hidden rounded-full border px-3 py-1 text-[9px] tracking-[0.2em] uppercase md:block">
                         {service.category}
                       </span>
                       <div
-                        className={`flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300 ${
-                          isOpen ? "border-orange-500 bg-orange-500" : "border-black/20"
-                        }`}
+                        className="flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300"
+                        style={{
+                          borderColor: isOpen ? "var(--color-primary)" : "var(--color-border)",
+                          backgroundColor: isOpen ? "var(--color-primary)" : "transparent",
+                        }}
                       >
                         <svg
-                          className={`h-3.5 w-3.5 transition-all duration-300 ${isOpen ? "rotate-45 text-white" : "text-black/40"}`}
+                          className="h-3.5 w-3.5 transition-all duration-300"
+                          style={{
+                            transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
+                            color: isOpen ? "#000000" : "var(--color-muted)",
+                          }}
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
@@ -249,12 +258,13 @@ export default function ServicesPage() {
                       <div className="grid gap-8 pb-12 pl-8 md:grid-cols-3 md:pl-20">
                         {/* Description */}
                         <div className="md:col-span-1">
-                          <p className="font-dm mb-6 text-sm leading-relaxed text-black/50">
+                          <p className="font-dm text-muted mb-6 text-sm leading-relaxed">
                             {service.desc}
                           </p>
                           <Link
                             href="/contact"
-                            className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-[10px] font-bold tracking-[0.15em] text-white uppercase transition-colors duration-300 hover:bg-orange-600"
+                            className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-[10px] font-bold tracking-[0.15em] text-black uppercase transition-all duration-300 hover:opacity-80"
+                            style={{ backgroundColor: "var(--color-primary)" }}
                           >
                             Start a Project →
                           </Link>
@@ -262,16 +272,19 @@ export default function ServicesPage() {
 
                         {/* What's included */}
                         <div>
-                          <p className="font-dm mb-4 text-[9px] tracking-[0.2em] text-black/30 uppercase">
+                          <p className="font-dm text-muted mb-4 text-[9px] tracking-[0.2em] uppercase">
                             What's included
                           </p>
                           <ul className="flex flex-col gap-2.5">
                             {service.points.map((point, j) => (
                               <li
                                 key={j}
-                                className="font-dm flex items-center gap-3 text-sm text-[#2a2a2a]"
+                                className="font-dm text-foreground flex items-center gap-3 text-sm"
                               >
-                                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500" />
+                                <span
+                                  className="h-1.5 w-1.5 shrink-0 rounded-full"
+                                  style={{ backgroundColor: "var(--color-primary)" }}
+                                />
                                 {point}
                               </li>
                             ))}
@@ -280,16 +293,16 @@ export default function ServicesPage() {
 
                         {/* Deliverables */}
                         <div>
-                          <p className="font-dm mb-4 text-[9px] tracking-[0.2em] text-black/30 uppercase">
+                          <p className="font-dm text-muted mb-4 text-[9px] tracking-[0.2em] uppercase">
                             Deliverables
                           </p>
                           <ul className="flex flex-col gap-2.5">
                             {service.deliverables.map((d, j) => (
                               <li
                                 key={j}
-                                className="font-dm flex items-center gap-3 text-sm text-[#2a2a2a]"
+                                className="font-dm text-foreground flex items-center gap-3 text-sm"
                               >
-                                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-black/20" />
+                                <span className="bg-border h-1.5 w-1.5 shrink-0 rounded-full" />
                                 {d}
                               </li>
                             ))}
@@ -306,31 +319,34 @@ export default function ServicesPage() {
       </div>
 
       {/* ── WHY IQONEX ── */}
-      <div className="bg-[#1a1a18] px-6 py-20 md:px-10 lg:px-16">
+      <div className="bg-background px-6 py-20 md:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="mb-3 text-[10px] tracking-[0.25em] text-white/20 uppercase">
+              <p className="text-muted mb-3 text-[10px] tracking-[0.25em] uppercase">
                 (WHY CHOOSE US)
               </p>
               <h2
-                className="font-geom leading-[0.92] font-black text-white"
+                className="font-geom text-foreground leading-[0.92] font-black"
                 style={{ fontSize: "clamp(2rem, 6vw, 5rem)" }}
               >
                 WHY WORK
                 <br />
-                WITH <span className="text-orange-500">IQONEX</span>
+                WITH <span style={{ color: "var(--color-primary)" }}>IQONEX</span>
               </h2>
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 self-start rounded-full border border-white/20 px-6 py-3 text-[10px] font-medium tracking-[0.15em] text-white uppercase transition-all duration-300 hover:border-white/60 hover:bg-white hover:text-black md:self-auto"
+              className="border-border text-foreground hover:border-primary hover:text-primary inline-flex items-center gap-2 self-start rounded-full border px-6 py-3 text-[10px] font-medium tracking-[0.15em] uppercase transition-all duration-300 md:self-auto"
             >
               Get Started
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 gap-px bg-white/5 md:grid-cols-3">
+          <div
+            className="grid grid-cols-1 gap-px md:grid-cols-3"
+            style={{ backgroundColor: "var(--color-border)" }}
+          >
             {[
               {
                 num: "01",
@@ -354,13 +370,13 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-[#1a1a18] p-8 transition-colors duration-300 hover:bg-white/5"
+                className="group bg-background hover:bg-surface p-8 transition-colors duration-300"
               >
-                <span className="font-dm text-[10px] tracking-widest text-white/20">
-                  {item.num}
-                </span>
-                <h3 className="font-geom mt-4 mb-3 text-xl font-black text-white">{item.title}</h3>
-                <p className="font-dm text-sm leading-relaxed text-white/40">{item.desc}</p>
+                <span className="font-dm text-muted text-[10px] tracking-widest">{item.num}</span>
+                <h3 className="font-geom text-foreground group-hover:text-primary mt-4 mb-3 text-xl font-black transition-colors duration-300">
+                  {item.title}
+                </h3>
+                <p className="font-dm text-muted text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -368,19 +384,19 @@ export default function ServicesPage() {
       </div>
 
       {/* ── CTA ── */}
-      <div className="bg-[#f0ede8] px-6 py-20 md:px-10 lg:px-16">
+      <div className="bg-surface px-6 py-20 md:px-10 lg:px-16">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <motion.h2
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-geom leading-[0.92] font-black text-[#2a2a2a]"
+            className="font-geom text-foreground leading-[0.92] font-black"
             style={{ fontSize: "clamp(2rem, 6vw, 5rem)" }}
           >
             LET'S BUILD
             <br />
-            <span className="text-orange-500">SOMETHING GREAT</span>
+            <span style={{ color: "var(--color-primary)" }}>SOMETHING GREAT</span>
           </motion.h2>
 
           <motion.div
@@ -392,13 +408,14 @@ export default function ServicesPage() {
           >
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-4 text-[10px] font-bold tracking-[0.2em] text-white uppercase transition-colors duration-300 hover:bg-orange-600"
+              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-[10px] font-bold tracking-[0.2em] text-black uppercase transition-opacity duration-300 hover:opacity-80"
+              style={{ backgroundColor: "var(--color-primary)" }}
             >
               Start a Project →
             </Link>
             <Link
               href="/capabilities"
-              className="inline-flex items-center justify-center rounded-full border border-black/20 px-8 py-4 text-[10px] font-medium tracking-[0.15em] text-black uppercase transition-all duration-300 hover:border-black/60 hover:bg-black hover:text-white"
+              className="border-border text-foreground hover:border-primary hover:text-primary inline-flex items-center justify-center rounded-full border px-8 py-4 text-[10px] font-medium tracking-[0.15em] uppercase transition-all duration-300"
             >
               View Capabilities
             </Link>
@@ -406,7 +423,6 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      {/* ── NEXT PAGES ── */}
       <NextPages />
     </section>
   );
