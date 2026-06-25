@@ -96,10 +96,24 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-white/5 pt-5">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/5 pt-5">
           <p className="font-dm text-[11px] text-white/20">
             Copyright © {new Date().getFullYear()} theiqonex. All Right Reserved
           </p>
+          <div className="flex gap-5">
+            <Link
+              href="/privacy-policy"
+              className="font-dm text-[11px] text-white/20 transition-colors hover:text-white/50"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms"
+              className="font-dm text-[11px] text-white/20 transition-colors hover:text-white/50"
+            >
+              Terms & Conditions
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
