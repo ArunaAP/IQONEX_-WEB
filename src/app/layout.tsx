@@ -7,6 +7,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScrolling from "@/components/providers/SmoothScrolling";
 import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -130,6 +131,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </SmoothScrolling>
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
     </html>
   );
 }
