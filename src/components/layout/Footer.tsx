@@ -66,10 +66,10 @@ export default function Footer() {
         <div className="mb-10 flex flex-wrap items-center justify-between gap-4">
           <div className="flex flex-wrap gap-6">
             <a
-              href="mailto:theiqonex@gmail.com"
+              href="mailto:hello@theiqonex.com"
               className="font-dm hover:text-primary text-sm tracking-wide text-white/50 underline decoration-white/20 underline-offset-4 transition-colors"
             >
-              theiqonex@gmail.com
+              hello@theiqonex.com
             </a>
             <a
               href="tel:+94769828585"

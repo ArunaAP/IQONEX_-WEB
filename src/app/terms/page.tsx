@@ -176,11 +176,11 @@ export default function TermsAndConditions() {
                 <p>
                   For any questions regarding these terms, please contact us at{" "}
                   <a
-                    href="mailto:theiqonex@gmail.com"
+                    href="mailto:hello@theiqonex.com"
                     className="hover:text-primary transition-colors"
                     style={{ color: "var(--color-primary)" }}
                   >
-                    theiqonex@gmail.com
+                    hello@theiqonex.com
                   </a>
                   .
                 </p>

@@ -20,7 +20,7 @@ type FormData = z.infer<typeof schema>;
 const inputClass =
   "mt-1 w-full border-b border-black/20 bg-transparent py-2 text-sm outline-none transition-colors duration-200 focus:border-primary placeholder:text-black/25 font-dm text-[#2a2a2a]";
 
-const labelClass = "text-[10px] font-bold tracking-[0.15em] uppercase text-black/40";
+const labelClass = "text-[10px] font-bold tracking-[0.15em] uppercase text-black/70";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -87,10 +87,10 @@ export default function ContactPage() {
             className="mt-8 flex flex-wrap gap-8"
           >
             <a
-              href="mailto:theiqonex@gmail.com"
+              href="mailto:hello@theiqonex.com"
               className="font-dm hover:text-primary text-[11px] text-white/50 underline underline-offset-4 transition-colors"
             >
-              theiqonex@gmail.com
+              hello@theiqonex.com
             </a>
             <a
               href="tel:+94769828585"
@@ -133,10 +133,10 @@ export default function ContactPage() {
                 <div>
                   <p className="mb-1 text-[9px] tracking-[0.2em] text-white/30 uppercase">Email</p>
                   <a
-                    href="mailto:theiqonex@gmail.com"
+                    href="mailto:hello@theiqonex.com"
                     className="font-dm hover:text-primary text-sm text-white transition-colors"
                   >
-                    theiqonex@gmail.com
+                    hello@theiqonex.com
                   </a>
                 </div>
                 <div>

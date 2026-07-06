@@ -202,11 +202,11 @@ export default function PrivacyPolicy() {
                   If you have any questions about this Privacy Policy or how we handle your data,
                   please contact us at{" "}
                   <a
-                    href="mailto:theiqonex@gmail.com"
+                    href="mailto:hello@theiqonex.com"
                     className="hover:text-primary transition-colors"
                     style={{ color: "var(--color-primary)" }}
                   >
-                    theiqonex@gmail.com
+                    hello@theiqonex.com
                   </a>
                   .
                 </p>
