@@ -7,33 +7,39 @@ import Image from "next/image";
 const services = [
   {
     id: "001",
-    label: "UI/UX",
+    label: "SOFTWARE",
     description:
-      "We craft intuitive and beautiful user experiences that delight users and drive engagement across all platforms.",
+      "Custom software tailored to streamline operations, automate workflows, and drive business growth.",
   },
   {
     id: "002",
     label: "WEB DEV",
     description:
-      "The digital landscape is ever-evolving, and digital agencies stay at the forefront of technology and industry trends.",
+      "Modern websites and web applications designed to attract customers and strengthen your digital presence.",
   },
   {
     id: "003",
-    label: "BRANDING",
+    label: "MOBILE APPS",
     description:
-      "We build strong, memorable brand identities that communicate your values and connect with your audience.",
+      "High-performance mobile applications that deliver seamless experiences across Android and iOS devices.",
   },
   {
     id: "004",
-    label: "SEO",
+    label: "ERP SOLUTIONS",
     description:
-      "Data-driven SEO strategies that increase your visibility, drive organic traffic, and grow your business.",
+      "Scalable ERP solutions that centralize business operations and improve productivity across your organization.",
   },
+  // {
+  //   id: "005",
+  //   label: "AI SOLUTIONS",
+  //   description:
+  //     "AI-powered tools and automation that simplify repetitive tasks and help businesses make smarter decisions.",
+  // },
   {
     id: "005",
-    label: "ERP",
+    label: "BRANDING",
     description:
-      "Custom ERP solutions that streamline your operations, improve efficiency, and scale with your business.",
+      "Strategic branding and visual identity that build recognition, trust, and lasting customer connections.",
   },
 ];
 
@@ -82,7 +88,7 @@ export default function Services() {
                     {service.label}
                   </h2>
 
-                  <span
+                  {/* <span
                     className="ml-4 shrink-0 rounded-full border px-2 py-0.5 text-[10px] tracking-widest transition-colors duration-300"
                     style={{
                       borderColor:
@@ -91,7 +97,7 @@ export default function Services() {
                     }}
                   >
                     {service.id}
-                  </span>
+                  </span> */}
 
                   <AnimatePresence>
                     {(isActive || isHovered) && (
