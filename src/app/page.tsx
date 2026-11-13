@@ -3,6 +3,7 @@ import Capabilities from "@/components/sections/Capabilities";
 import Hero from "@/components/sections/Hero";
 import Marquee from "@/components/sections/Marquee";
 import NextPages from "@/components/sections/Nextpages";
+import POSProduct from "@/components/sections/POSProduct";
 import Services from "@/components/sections/Services";
 import Work from "@/components/sections/Work";
 
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
+      <POSProduct />
       <Capabilities />
       <Marquee />
       <Work />
